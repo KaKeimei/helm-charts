@@ -94,10 +94,7 @@ elasticsearch:
       # ilm_policy_id1: {}
       # ilm_policy_id2: {}
     policy_overwrite: false
-  template_name: ""
-    # Name of template
-  template_file: ""
-    # Path to template file
+  template: null
   path: ""
   scheme: "http"
   sslVerify: true
