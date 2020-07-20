@@ -554,6 +554,10 @@ data:
     </label>
 {{- end }}
 
+{{- if .Values.elasticsearch.template }}
+  fluentd.json: {{ .Values.elasticsearch.template }}
+{{- end }}
+
 {{- range $key, $value := .Values.extraConfigMaps }}
   {{ $key }}: |-
 {{ $value | indent 4 }}

@@ -107,7 +107,7 @@ spec:
         - name: TEMPLATE_NAME
           value: fluentd
         - name: TEMPLATE_FILE 
-          value: /etc/fluent/template/template.json    
+          value: /etc/fluent/config.d/fluentd.json    
 {{- end }}
         - name: OUTPUT_SCHEME
           {{- if .Values.awsSigningSidecar.enabled }}
@@ -192,10 +192,6 @@ spec:
           readOnly: true
         - name: config-volume
           mountPath: /etc/fluent/config.d
-{{- if .Values.elasticsearch.template }}
-        - name: template-volume
-          mountPath: /etc/fluent/template
-{{- end }}
 {{- if .Values.extraVolumeMounts }}
 {{ toYaml .Values.extraVolumeMounts | indent 8 }}
 {{- end }}
@@ -242,11 +238,6 @@ spec:
       - name: config-volume
         configMap:
           name: {{ include "fluentd-elasticsearch.fullname" . }}
-{{- if .Values.elasticsearch.template }}
-      - name: template-volume
-        configMap: 
-          name: {{ include "fluentd-elasticsearch.fullname" .}}-template
-{{- end }}
 {{- if .Values.extraVolumes }}
 {{ toYaml .Values.extraVolumes | indent 6 }}
 {{- end }}
