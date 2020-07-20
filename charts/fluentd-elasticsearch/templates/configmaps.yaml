@@ -527,7 +527,7 @@ data:
       ilm_policies "#{ENV['ILM_POLICIES']}"
       ilm_policy_overwrite "#{ENV['ILM_POLICY_OVERWRITE']}"
 {{- end }}
-{{- if and .Values.elasticsearch.template_name .Values.elasticsearch.template_file }}
+{{- if and .Values.elasticsearch.template }}
       template_file "#{ENV['TEMPLATE_FILE']}"
       template_name "#{ENV['TEMPLATE_NAME']}"
 {{- end }}
