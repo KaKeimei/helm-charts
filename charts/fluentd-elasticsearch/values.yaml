@@ -98,8 +98,6 @@ elasticsearch:
     # Name of template
   template_file: ""
     # Path to template file
-  templates: ""
-    # Templates to be installed
   path: ""
   scheme: "http"
   sslVerify: true

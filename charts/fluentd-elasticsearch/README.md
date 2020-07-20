@@ -90,7 +90,6 @@ The following table lists the configurable parameters of the Fluentd elasticsear
 | `elasticsearch.requestTimeout`                       | Elasticsearch request timeout                                                  | `5s`                                               |
 | `elastcsearch.template_name`                         | Name of ElasticSearch template to apply to index     |  |
 | `elastcsearch.template_file`                         | Path of ElasticSearch template to apply to index     |  |
-| `elastcsearch.templates`                         | New templates to install. Ignored if template_name and template_file specified.     |  |
 | `elasticsearch.buffer.enabled`                       | Elasticsearch Buffer enabled                                                   | `true`                                             |
 | `elasticsearch.buffer.type`                          | Elasticsearch Buffer type                                                      | `file`                                             |
 | `elasticsearch.buffer.path`                          | Elasticsearch Buffer path                                                      | `/var/log/fluentd-buffers/kubernetes.system.buffer`|

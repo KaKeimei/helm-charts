@@ -530,8 +530,6 @@ data:
 {{- if and .Values.elasticsearch.template_name .Values.elasticsearch.template_file }}
       template_file "#{ENV['TEMPLATE_FILE']}"
       template_name "#{ENV['TEMPLATE_NAME']}"
-{{- else if .Values.elasticsearch.templates }}
-      templates "#{ENV['TEMPLATES']}"
 {{- end }}
       reconnect_on_error "#{ENV['OUTPUT_RECONNECT_ON_ERROR']}"
       reload_on_failure "#{ENV['OUTPUT_RELOAD_ON_FAILURE']}"
