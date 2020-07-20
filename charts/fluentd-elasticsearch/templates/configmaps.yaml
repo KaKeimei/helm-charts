@@ -555,7 +555,8 @@ data:
 {{- end }}
 
 {{- if .Values.elasticsearch.template }}
-  fluentd.json: {{ trimAll "'" .Values.elasticsearch.template }}
+  fluentd.json: |-
+  {{ trimAll "\'" .Values.elasticsearch.template | indent 2 }}
 {{- end }}
 
 {{- range $key, $value := .Values.extraConfigMaps }}
