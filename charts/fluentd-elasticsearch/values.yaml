@@ -73,7 +73,7 @@ elasticsearch:
   ilm:
     enabled: false
     policy_id: logstash-policy
-    policy: {}
+    policy: null
       # example for ilm policy config
       # phases:
       #   hot:
@@ -88,7 +88,7 @@ elasticsearch:
       #     min_age: 60d
       #     actions:
       #       delete:
-    policies: {}
+    policies: null
       # example for ilm policies config
       # ilm_policy_id1: {}
       # ilm_policy_id2: {}
