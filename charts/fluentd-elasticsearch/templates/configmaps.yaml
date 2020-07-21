@@ -526,8 +526,6 @@ data:
       ilm_policy "#{ENV['ILM_POLICY']}"
       ilm_policies "#{ENV['ILM_POLICIES']}"
       ilm_policy_overwrite "#{ENV['ILM_POLICY_OVERWRITE']}"
-{{- end }}
-{{- if .Values.elasticsearch.template }}
       template_file "#{ENV['TEMPLATE_FILE']}"
       template_name "#{ENV['TEMPLATE_NAME']}"
 {{- end }}
@@ -554,9 +552,18 @@ data:
     </label>
 {{- end }}
 
-{{- if .Values.elasticsearch.template }}
+{{- if .Values.elasticsearch.ilm.enabled }}
   fluentd.json: |-
-  {{ .Values.elasticsearch.template | toJson | indent 2 }}
+    {
+      "index_patterns": [
+          "logstash-default-*"
+      ],
+      "settings": {
+          "index": {
+              "number_of_replicas": "1"
+          }
+      }
+    }
 {{- end }}
 
 {{- range $key, $value := .Values.extraConfigMaps }}

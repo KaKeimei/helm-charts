@@ -102,8 +102,6 @@ spec:
           value: {{ .Values.elasticsearch.ilm.policies | quote }}
         - name: ILM_POLICY_OVERWRITE
           value: {{ .Values.elasticsearch.ilm.policy_overwrite | quote }}
-{{- end }} 
-{{- if .Values.elasticsearch.template }}    
         - name: TEMPLATE_NAME
           value: fluentd
         - name: TEMPLATE_FILE 
