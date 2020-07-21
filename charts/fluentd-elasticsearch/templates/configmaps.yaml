@@ -553,6 +553,7 @@ data:
 {{- end }}
 
 {{- if .Values.elasticsearch.ilm.enabled }}
+# TODO: Make thse configurable through Helm values
   fluentd.json: |-
     {
       "index_patterns": [
